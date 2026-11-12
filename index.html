@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comercializadora Industrial Guzman</title>
+    <meta
+      name="description"
+      content="Comercializadora Industrial Guzman ofrece soluciones integrales en conducción de fluidos y productos para la industria."
+    />
+    <style>
+      :root {
+        /* Paleta industrial base */
+        --primary-900: #081d2c;
+        --primary-800: #0f293d;
+        --primary-700: #163a52;
+        --steel-100: #f4f7fa;
+        --steel-200: #e7edf3;
+        --steel-300: #d7e0ea;
+        --steel-500: #8ba0b6;
+        --steel-700: #44576d;
+        --accent-orange: #f28c28;
+        --accent-green: #1ea88d;
+        --text: #152636;
+        --text-soft: #52657a;
+        --white: #ffffff;
+        --shadow: 0 18px 50px rgba(12, 28, 42, 0.12);
+        --radius: 22px;
+        --container: min(1200px, calc(100% - 2rem));
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: var(--steel-100);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+
+      .container {
+        width: var(--container);
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-head {
+        margin-bottom: 2.5rem;
+        text-align: center;
+      }
+
+      .section-kicker {
+        color: var(--accent-orange);
+        font-size: 0.76rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        display: inline-block;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+        margin-bottom: 0.85rem;
+      }
+
+      .muted {
+        color: var(--text-soft);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(8, 29, 44, 0.82);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 78px;
+        gap: 1rem;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        color: var(--white);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+      }
+
+      .brand-logo {
+        display: block;
+        width: 80px;
+        max-width: 100%;
+        height: auto;
+        filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18));
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.95rem;
+      }
+
+      .nav-links a {
+        transition: color 0.25s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        color: var(--white);
+      }
+
+      .nav-cta {
+        background: linear-gradient(135deg, var(--accent-orange), #ff9a3a);
+        color: var(--white);
+        border: none;
+        border-radius: 999px;
+        padding: 0.82rem 1.35rem;
+        font-weight: 700;
+        box-shadow: 0 12px 24px rgba(242, 140, 40, 0.25);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .nav-cta:hover,
+      .nav-cta:focus-visible {
+        transform: translateY(-1px);
+        box-shadow: 0 18px 30px rgba(242, 140, 40, 0.3);
+      }
+
+      .hero {
+        position: relative;
+        background:
+          linear-gradient(120deg, rgba(8, 29, 44, 0.9), rgba(18, 34, 48, 0.72)),
+          url("Fondo.jpg") center/cover no-repeat;
+        color: var(--white);
+        overflow: hidden;
+        min-height: 700px;
+      }
+
+      .hero .container {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 2rem;
+        align-items: center;
+        min-height: 700px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 75% 25%, rgba(242, 140, 40, 0.16), transparent 25%);
+        pointer-events: none;
+      }
+
+      .eyebrow {
+        color: #cde4f6;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-weight: 700;
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+        display: inline-block;
+      }
+
+      .hero-copy {
+        max-width: 620px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.7rem, 5vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero p {
+        max-width: 34rem;
+        font-size: 1.08rem;
+        color: rgba(255, 255, 255, 0.76);
+        margin-bottom: 2rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border: none;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.65rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent-orange), #ff9a3a);
+        color: var(--white);
+        padding: 1rem 1.5rem;
+        box-shadow: 0 16px 35px rgba(242, 140, 40, 0.28);
+      }
+
+      .btn-primary:hover,
+      .btn-primary:focus-visible {
+        transform: translateY(-2px);
+      }
+
+      .hero-meta {
+        margin-top: 2.1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem 2rem;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 0.9rem;
+      }
+
+      .hero-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+
+      .dot {
+        display: inline-block;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--accent-green);
+        box-shadow: 0 0 0 6px rgba(30, 168, 141, 0.14);
+      }
+
+      .hero-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .panel {
+        position: relative;
+        width: min(100%, 430px);
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 32px;
+        padding: 1.2rem;
+        box-shadow: 0 30px 60px rgba(3, 10, 16, 0.3);
+        backdrop-filter: blur(12px);
+      }
+
+      .panel-visual {
+        min-height: 480px;
+        border-radius: 22px;
+        position: relative;
+        background:
+          linear-gradient(180deg, rgba(20, 38, 54, 0.28), rgba(10, 20, 30, 0.7)),
+          url("2.jpg") center/cover no-repeat;
+        overflow: hidden;
+      }
+
+      .panel-visual::before {
+        content: "";
+        position: absolute;
+        inset: 12% 18% 18% 12%;
+        border-radius: 26px;
+        background: linear-gradient(160deg, rgba(18, 34, 48, 0.3), rgba(20, 123, 160, 0.18));
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .device {
+        position: absolute;
+        inset: 14% 20% 18% 12%;
+        border-radius: 26px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.94), rgba(214, 223, 233, 0.8));
+        box-shadow: inset 0 0 0 1px rgba(16, 32, 46, 0.1), 0 28px 45px rgba(7, 18, 31, 0.35);
+        transform: rotate(-8deg);
+        overflow: hidden;
+      }
+
+      .device::before,
+      .device::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+      }
+
+      .device::before {
+        width: 120px;
+        height: 120px;
+        left: 52%;
+        top: 15%;
+        background: linear-gradient(140deg, rgba(12, 40, 60, 0.25), rgba(242, 140, 40, 0.3));
+      }
+
+      .device::after {
+        width: 160px;
+        height: 160px;
+        left: 18%;
+        top: 42%;
+        background: linear-gradient(140deg, rgba(40, 116, 148, 0.16), rgba(17, 42, 58, 0.12));
+      }
+
+      .pipe {
+        position: absolute;
+        inset: auto 8% 12% 12%;
+        height: 42%;
+        border-radius: 30px;
+        background: linear-gradient(180deg, rgba(11, 22, 31, 0.9), rgba(22, 58, 82, 0.75));
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+      }
+
+      .pipe::before,
+      .pipe::after {
+        content: "";
+        position: absolute;
+        width: 26%;
+        height: 36px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(145, 158, 174, 0.72));
+        top: 50%;
+        border-radius: 999px;
+      }
+
+      .pipe::before {
+        left: 10%;
+        transform: translateY(-50%) rotate(16deg);
+      }
+
+      .pipe::after {
+        right: 12%;
+        transform: translateY(-50%) rotate(-16deg);
+      }
+
+      .panel-badges {
+        position: absolute;
+        display: grid;
+        gap: 0.8rem;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+      }
+
+      .mini-badge {
+        background: rgba(9, 20, 30, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 0.8rem 0.9rem;
+        color: var(--white);
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 0.82rem;
+      }
+
+      .mini-badge strong {
+        display: block;
+        font-size: 1.05rem;
+        margin-top: 0.2rem;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(26px);
+        transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .delay-1 { transition-delay: 0.08s; }
+      .delay-2 { transition-delay: 0.16s; }
+      .delay-3 { transition-delay: 0.24s; }
+      .delay-4 { transition-delay: 0.32s; }
+
+      .business-grid,
+      .sectors-grid,
+      .products-grid,
+      .contact-grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .business-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .business-card,
+      .sector-item,
+      .product-card,
+      .contact-card,
+      .form-card {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(15, 41, 61, 0.04);
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .business-card {
+        padding: 1.75rem 1.5rem;
+      }
+
+      .business-card:hover,
+      .business-card:focus-within,
+      .contact-card:hover,
+      .contact-card:focus-within,
+      .form-card:hover,
+      .form-card:focus-within {
+        transform: translateY(-6px);
+        border-color: rgba(242, 140, 40, 0.55);
+        box-shadow: 0 22px 38px rgba(15, 41, 61, 0.12);
+      }
+
+      .icon-box {
+        width: 64px;
+        height: 64px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, rgba(18, 58, 82, 0.12), rgba(242, 140, 40, 0.12));
+        color: var(--primary-700);
+        margin-bottom: 1.1rem;
+      }
+
+      .icon-box svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      .business-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .business-card p {
+        color: var(--text-soft);
+        margin-bottom: 0;
+      }
+
+      .sectors-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .sector-item {
+        padding: 1.5rem 1.2rem;
+        text-align: center;
+        border: 1px solid rgba(17, 38, 54, 0.1);
+      }
+
+      .sector-item:hover,
+      .sector-item:focus-within {
+        transform: translateY(-6px);
+        border-color: rgba(242, 140, 40, 0.75);
+        box-shadow: 0 18px 32px rgba(15, 41, 61, 0.08);
+      }
+
+      .sector-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        margin: 0 auto 1rem;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, rgba(15, 41, 61, 0.1), rgba(30, 168, 141, 0.1));
+        color: var(--primary-700);
+      }
+
+      .sector-item h3 {
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .brand-strip {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        background: var(--white);
+        border: 1px solid rgba(15, 41, 61, 0.05);
+        box-shadow: var(--shadow);
+        padding: 1.25rem 0;
+      }
+
+      .brand-track {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: max-content;
+        animation: scrollBrands 24s linear infinite;
+      }
+
+      .brand-strip:hover .brand-track {
+        animation-play-state: paused;
+      }
+
+      .brand-item {
+        min-width: 160px;
+        padding: 1rem 1.2rem;
+        border-radius: 16px;
+        margin: 0 0.5rem;
+        border: 1px solid rgba(15, 41, 61, 0.08);
+        background: linear-gradient(180deg, rgba(244, 247, 250, 0.8), rgba(255,255,255,1));
+        color: var(--steel-700);
+        font-weight: 700;
+        text-align: center;
+        letter-spacing: 0.04em;
+      }
+
+      @keyframes scrollBrands {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+
+      .metrics {
+        background: linear-gradient(180deg, var(--primary-900), var(--primary-800));
+        color: var(--white);
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.2rem;
+      }
+
+      .metric-box {
+        padding: 2rem 1.25rem;
+        text-align: center;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .metric-value {
+        font-size: clamp(2rem, 3vw, 3rem);
+        font-weight: 800;
+        letter-spacing: -0.06em;
+        margin-bottom: 0.3rem;
+      }
+
+      .metric-label {
+        color: rgba(255, 255, 255, 0.74);
+        font-size: 0.95rem;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .product-card {
+        overflow: hidden;
+      }
+
+      .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 26px 42px rgba(15, 41, 61, 0.12);
+      }
+
+      .product-image {
+        height: 250px;
+        position: relative;
+        background: linear-gradient(135deg, rgba(15, 41, 61, 0.3), rgba(30, 168, 141, 0.22)), url("1.jpg") center/cover no-repeat;
+        overflow: hidden;
+      }
+
+      .product-image::before,
+      .product-image::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+      }
+
+      .product-image::before {
+        width: 180px;
+        height: 180px;
+        background: rgba(255, 255, 255, 0.12);
+        right: -25px;
+        top: -25px;
+      }
+
+      .product-image::after {
+        width: 220px;
+        height: 220px;
+        background: rgba(242, 140, 40, 0.16);
+        left: -40px;
+        bottom: -45px;
+      }
+
+      .product-illustration {
+        position: absolute;
+        inset: 16% 18% 14% 18%;
+        border-radius: 24px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(218, 230, 240, 0.82));
+        box-shadow: inset 0 0 0 1px rgba(16, 32, 46, 0.08), 0 18px 28px rgba(7, 18, 31, 0.2);
+        transform: rotate(-9deg);
+      }
+
+      .product-illustration::before,
+      .product-illustration::after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+      }
+
+      .product-illustration::before {
+        width: 115px;
+        height: 36px;
+        left: 27%;
+        top: 22%;
+        background: rgba(15, 41, 61, 0.9);
+        box-shadow: 0 58px 0 0 rgba(15, 41, 61, 0.9), 0 116px 0 0 rgba(15, 41, 61, 0.9);
+      }
+
+      .product-illustration::after {
+        width: 32px;
+        height: 120px;
+        left: 48%;
+        top: 28%;
+        background: rgba(242, 140, 40, 0.88);
+      }
+
+      .product-card:hover .product-image {
+        transform: scale(1.04);
+      }
+
+      .product-image,
+      .product-card:hover .product-image {
+        transition: transform 0.5s ease;
+      }
+
+      .product-body {
+        padding: 1.4rem 1.4rem 1.6rem;
+      }
+
+      .product-body h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-body p {
+        color: var(--text-soft);
+        margin-bottom: 1rem;
+      }
+
+      .product-link {
+        font-weight: 700;
+        color: var(--primary-700);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+
+      .form-card,
+      .contact-card {
+        padding: 2rem;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+        margin-bottom: 1rem;
+      }
+
+      .field label {
+        color: var(--text-soft);
+        font-weight: 600;
+      }
+
+      .field input,
+      .field textarea {
+        width: 100%;
+        padding: 0.9rem 1rem;
+        border: 1px solid rgba(15, 41, 61, 0.12);
+        border-radius: 12px;
+        background: #f9fbfd;
+        color: var(--text);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .field input:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: rgba(242, 140, 40, 0.9);
+        box-shadow: 0 0 0 4px rgba(242, 140, 40, 0.12);
+      }
+
+      textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+
+      .form-status {
+        margin-top: 1rem;
+        color: var(--accent-green);
+        font-weight: 700;
+        display: none;
+      }
+
+      .form-status.visible {
+        display: block;
+      }
+
+      .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0 0;
+        display: grid;
+        gap: 1rem;
+      }
+
+      .contact-list li {
+        display: flex;
+        align-items: start;
+        gap: 0.85rem;
+        color: var(--text-soft);
+      }
+
+      .contact-list strong {
+        display: block;
+        color: var(--text);
+        margin-bottom: 0.15rem;
+      }
+
+      .contact-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(15, 41, 61, 0.1), rgba(242, 140, 40, 0.14));
+        display: grid;
+        place-items: center;
+        color: var(--primary-700);
+        flex-shrink: 0;
+      }
+
+      .site-footer {
+        background: var(--primary-900);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 1.5rem 0;
+      }
+
+      .footer-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: rgba(255,255,255,0.8);
+      }
+
+      /* Placeholders visual */
+      .placeholder-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.45rem 0.7rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        color: rgba(255,255,255,0.8);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      @keyframes floatCard {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+      }
+
+      .panel {
+        animation: floatCard 6s ease-in-out infinite;
+      }
+
+      @media (max-width: 1024px) {
+        .business-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .sectors-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .hero .container,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero .container {
+          min-height: auto;
+          padding: 4rem 0 3rem;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-links {
+          display: none;
+        }
+
+        .nav-wrap {
+          min-height: 68px;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .business-grid,
+        .products-grid,
+        .metrics-grid,
+        .form-grid,
+        .sectors-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.3rem, 11vw, 3.5rem);
+        }
+
+        .panel {
+          width: 100%;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#top" class="brand" aria-label="Comercializadora Industrial Guzmán">
+          <img src="Blanco/Blanco.png" alt="Logo Comercializadora Industrial Guzmán" class="brand-logo" />
+        </a>
+
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#negocios">Líneas</a>
+          <a href="#sectores">Sectores</a>
+          <a href="#marcas">Marcas</a>
+          <a href="#productos">Productos</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <a href="#contacto" class="nav-cta">Cotizar ahora</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container">
+          <div class="hero-copy reveal delay-1">
+            <span class="eyebrow">Comercializadora Industrial Guzmán</span>
+            <h1 id="hero-title">Soluciones integrales en conducción de fluidos para la industria</h1>
+            <p>
+              Proveemos productos, asesoría técnica y suministro estratégico para plantas,
+              proyectos y operaciones industriales que requieren continuidad, seguridad y eficiencia.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contacto" class="btn btn-primary">Cotizar ahora</a>
+            </div>
+
+            <div class="hero-meta" aria-label="Principales ventajas">
+              <span><i class="dot" aria-hidden="true"></i> Suministro seguro</span>
+              <span><i class="dot" aria-hidden="true"></i> Soporte técnico</span>
+              <span><i class="dot" aria-hidden="true"></i> Entregas a tiempo</span>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal delay-2" aria-label="Vista de soluciones industriales">
+            <div class="panel">
+              <div class="panel-visual">
+                <div class="device" aria-hidden="true"></div>
+                <div class="pipe" aria-hidden="true"></div>
+                <div class="panel-badges">
+                  <div class="mini-badge">
+                    <div>
+                      <span class="placeholder-tag">Especialistas</span>
+                      <strong>+15 años</strong>
+                    </div>
+                    <span aria-hidden="true">⚙️</span>
+                  </div>
+                  <div class="mini-badge">
+                    <div>
+                      <span class="placeholder-tag">Cobertura</span>
+                      <strong>+500 clientes</strong>
+                    </div>
+                    <span aria-hidden="true">📍</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="negocios" class="section" aria-labelledby="negocios-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-kicker">Líneas de negocio</span>
+            <h2 id="negocios-title">Soluciones técnicas para cada etapa de tu operación</h2>
+          </div>
+
+          <div class="business-grid">
+            <article class="business-card reveal delay-1">
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 16V9.5A2.5 2.5 0 0 1 7.5 7h9A2.5 2.5 0 0 1 19 9.5V16"/>
+                  <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"/>
+                  <path d="M3 16h18"/>
+                  <path d="M12 11v5"/>
+                </svg>
+              </div>
+              <h3>Bombas e impulsión</h3>
+              <p>Equipos para transferencia, recirculación y manejo de fluidos con alto rendimiento y baja pérdida.</p>
+            </article>
+
+            <article class="business-card reveal delay-2">
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 7h16M7 4v6M17 4v6M6 17h12v3H6zM8 13h8"/>
+                </svg>
+              </div>
+              <h3>Tuberías y accesorios</h3>
+              <p>Soluciones completas para sistemas de suministro, descarga y distribución en procesos industriales.</p>
+            </article>
+
+            <article class="business-card reveal delay-3">
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 16V8.5A2.5 2.5 0 0 1 8.5 6h7A2.5 2.5 0 0 1 18 8.5V16"/>
+                  <path d="M9 6V4m6 2V4M7 12h10M7 16h10"/>
+                </svg>
+              </div>
+              <h3>Válvulas y control</h3>
+              <p>Control preciso de flujo, presión y automatización para sistemas con exigencias técnicas elevadas.</p>
+            </article>
+
+            <article class="business-card reveal delay-4">
+              <div class="icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v6M12 15v6M3 12h6M15 12h6"/>
+                  <circle cx="12" cy="12" r="4"/>
+                </svg>
+              </div>
+              <h3>Mantenimiento industrial</h3>
+              <p>Asesoría, revisión de equipos y optimización para mantener la operación sin interrupciones.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="sectores" class="section" aria-labelledby="sectores-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-kicker">Sectores</span>
+            <h2 id="sectores-title">Atendemos procesos críticos con enfoque técnico</h2>
+          </div>
+
+          <div class="sectors-grid">
+            <article class="sector-item reveal delay-1" tabindex="0">
+              <div class="sector-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 18L9 6l4 7 7-11"/>
+                  <path d="M3 18h18"/>
+                </svg>
+              </div>
+              <h3>Minería</h3>
+            </article>
+
+            <article class="sector-item reveal delay-2" tabindex="0">
+              <div class="sector-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 18V7l6-3 6 3v11"/>
+                  <path d="M9 17V9h6v8"/>
+                </svg>
+              </div>
+              <h3>Petróleo</h3>
+            </article>
+
+            <article class="sector-item reveal delay-3" tabindex="0">
+              <div class="sector-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 18V8l5-3 5 3v10"/>
+                  <path d="M9 12h6"/>
+                  <path d="M12 9v6"/>
+                </svg>
+              </div>
+              <h3>Alimentos</h3>
+            </article>
+
+            <article class="sector-item reveal delay-4" tabindex="0">
+              <div class="sector-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 18h16M6 18V8l6-4 6 4v10"/>
+                  <path d="M10 12h4"/>
+                </svg>
+              </div>
+              <h3>Construcción</h3>
+            </article>
+
+            <article class="sector-item reveal delay-5" tabindex="0">
+              <div class="sector-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 12h12"/>
+                  <path d="M12 6v12"/>
+                  <circle cx="12" cy="12" r="8"/>
+                </svg>
+              </div>
+              <h3>Química</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="marcas" class="section" aria-labelledby="marcas-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-kicker">Marcas</span>
+            <h2 id="marcas-title">Trabajamos con marcas líderes del sector</h2>
+          </div>
+
+          <div class="brand-strip reveal" aria-label="Marcas de referencia">
+            <div class="brand-track">
+              <div class="brand-item">FLOWSERVE</div>
+              <div class="brand-item">PENTAIR</div>
+              <div class="brand-item">BERMAD</div>
+              <div class="brand-item">PARKER</div>
+              <div class="brand-item">KRAL</div>
+              <div class="brand-item">WILO</div>
+              <div class="brand-item">FLOWSERVE</div>
+              <div class="brand-item">PENTAIR</div>
+              <div class="brand-item">BERMAD</div>
+              <div class="brand-item">PARKER</div>
+              <div class="brand-item">KRAL</div>
+              <div class="brand-item">WILO</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section metrics" aria-labelledby="metricas-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-kicker" style="color: #ffd7a8;">Nuestra empresa</span>
+            <h2 id="metricas-title" style="color: var(--white);">Resultados que respaldan cada decisión</h2>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-box reveal delay-1">
+              <div class="metric-value" data-target="15" data-suffix="+">0</div>
+              <div class="metric-label">años de experiencia</div>
+            </div>
+            <div class="metric-box reveal delay-2">
+              <div class="metric-value" data-target="500" data-suffix="+">0</div>
+              <div class="metric-label">clientes atendidos</div>
+            </div>
+            <div class="metric-box reveal delay-3">
+              <div class="metric-value" data-target="98" data-suffix="%">0</div>
+              <div class="metric-label">satisfacción</div>
+            </div>
+            <div class="metric-box reveal delay-4">
+              <div class="metric-value" data-target="60" data-suffix="+">0</div>
+              <div class="metric-label">proveedores clave</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="productos" class="section" aria-labelledby="productos-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-kicker">Productos destacados</span>
+            <h2 id="productos-title">Equipos y soluciones para operar con confianza</h2>
+          </div>
+
+          <div class="products-grid">
+            <article class="product-card reveal delay-1">
+              <div class="product-image" aria-hidden="true">
+                <div class="product-illustration"></div>
+              </div>
+              <div class="product-body">
+                <h3>Bomba centrífuga</h3>
+                <p>Diseñada para mover fluidos de baja viscosidad con alta eficiencia y bajo mantenimiento.</p>
+                <a href="#contacto" class="product-link">Ver más</a>
+              </div>
+            </article>
+
+            <article class="product-card reveal delay-2">
+              <div class="product-image" aria-hidden="true" style="background: linear-gradient(135deg, rgba(16, 37, 55, 0.9), rgba(242, 140, 40, 0.42));">
+                <div class="product-illustration" style="transform: rotate(-5deg) scale(0.96);"></div>
+              </div>
+              <div class="product-body">
+                <h3>Válvula de control</h3>
+                <p>Solución robusta para regulación de flujo y presión en procesos críticos y continuos.</p>
+                <a href="#contacto" class="product-link">Ver más</a>
+              </div>
+            </article>
+
+            <article class="product-card reveal delay-3">
+              <div class="product-image" aria-hidden="true" style="background: linear-gradient(135deg, rgba(15, 41, 61, 0.9), rgba(30, 168, 141, 0.45));">
+                <div class="product-illustration" style="transform: rotate(-12deg) scale(1.06);"></div>
+              </div>
+              <div class="product-body">
+                <h3>Accesorios HDPE</h3>
+                <p>Componentes de alta resistencia para sistemas de distribución y conducción eficiente de fluidos.</p>
+                <a href="#contacto" class="product-link">Ver más</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="section" aria-labelledby="contacto-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="section-kicker">Contacto</span>
+            <h2 id="contacto-title">Solicita una cotización con nuestro equipo técnico</h2>
+          </div>
+
+          <div class="contact-grid">
+            <div class="form-card reveal delay-1">
+              <form id="contactForm" novalidate>
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" type="text" aria-label="Nombre" required />
+                  </div>
+
+                  <div class="field">
+                    <label for="empresa">Empresa</label>
+                    <input id="empresa" name="empresa" type="text" aria-label="Empresa" required />
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="email">Correo electrónico</label>
+                  <input id="email" name="email" type="email" aria-label="Correo electrónico" required />
+                </div>
+
+                <div class="field">
+                  <label for="mensaje">Mensaje</label>
+                  <textarea id="mensaje" name="mensaje" aria-label="Mensaje" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" aria-label="Enviar cotización">Enviar cotización</button>
+                <div id="formStatus" class="form-status" aria-live="polite">Tu solicitud se ha enviado correctamente.</div>
+              </form>
+            </div>
+
+            <aside class="contact-card reveal delay-2" aria-label="Datos de contacto">
+              <h3 style="margin-bottom: 1rem;">Estamos para ayudarte</h3>
+              <ul class="contact-list">
+                <li>
+                  <span class="contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.08 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72l.8 4.16a2 2 0 0 1-.45 1.72L9 12.5a16 16 0 0 0 6.5 6.5l1.9-1.35a2 2 0 0 1 1.72-.45l4.16.8A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <strong>Teléfono</strong>
+                    +56 9 1234 5678
+                  </div>
+                </li>
+
+                <li>
+                  <span class="contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 5h16v14H4z"/>
+                      <path d="M4 7l8 6 8-6"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <strong>Correo</strong>
+                    ventas@industrialfluids.cl
+                  </div>
+                </li>
+
+                <li>
+                  <span class="contact-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11z"/>
+                      <circle cx="12" cy="10" r="2.5"/>
+                    </svg>
+                  </span>
+                  <div>
+                    <strong>Dirección</strong>
+                    Av. Industrial 245, Parque Empresarial, Santiago
+                  </div>
+                </li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrap">
+        <p>© 2026 Comercializadora Industrial Guzman</p>
+        <div class="footer-links">
+          <a href="#negocios">Líneas</a>
+          <a href="#sectores">Sectores</a>
+          <a href="#contacto">Cotización</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Reemplazar textos, marcas, datos de contacto y colores corporativos aquí si aplica.
+
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const revealItems = document.querySelectorAll('.reveal');
+
+      if (prefersReducedMotion) {
+        revealItems.forEach((item) => {
+          item.classList.add('is-visible');
+        });
+      } else {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.18 });
+
+        revealItems.forEach((item) => revealObserver.observe(item));
+      }
+
+      const hero = document.querySelector('.hero');
+      if (hero && !prefersReducedMotion) {
+        window.addEventListener('scroll', () => {
+          const offset = window.scrollY * 0.18;
+          hero.style.backgroundPosition = `center ${offset}px`;
+        }, { passive: true });
+      }
+
+      const counters = document.querySelectorAll('[data-target]');
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const el = entry.target;
+          const target = Number(el.dataset.target || 0);
+          const suffix = el.dataset.suffix || '';
+          const duration = 1400;
+          const start = performance.now();
+
+          const tick = (now) => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const value = Math.round(target * eased);
+            el.textContent = value + suffix;
+            if (progress < 1) {
+              requestAnimationFrame(tick);
+            } else {
+              el.textContent = target + suffix;
+            }
+          };
+
+          if (!prefersReducedMotion) {
+            requestAnimationFrame(tick);
+          } else {
+            el.textContent = target + suffix;
+          }
+
+          counterObserver.unobserve(el);
+        });
+      }, { threshold: 0.45 });
+
+      counters.forEach((counter) => counterObserver.observe(counter));
+
+      const form = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const nombre = document.getElementById('nombre').value.trim();
+        const empresa = document.getElementById('empresa').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!nombre || !empresa || !email || !mensaje) {
+          formStatus.textContent = 'Completa todos los campos para continuar.';
+          formStatus.classList.add('visible');
+          return;
+        }
+
+        if (!emailRegex.test(email)) {
+          formStatus.textContent = 'Ingresa un correo electrónico válido.';
+          formStatus.classList.add('visible');
+          return;
+        }
+
+        formStatus.textContent = 'Tu solicitud se ha enviado correctamente. Nuestro equipo te contactará pronto.';
+        formStatus.classList.add('visible');
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
